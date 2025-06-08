@@ -1,0 +1,5 @@
+[book]
+authors = ["junbo.dai"]
+language = "zh"
+src = "zh/src"
+title = "001A OS manual"
