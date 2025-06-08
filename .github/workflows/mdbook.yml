@@ -31,6 +31,12 @@ jobs:
     env :
       MDBOOK_VERSION: 0.4.36                
     steps :
+      # Docs of HAL crates must be generated after that of the main crate,
+      # otherwise this would result in broken links, as they use `--no-deps` for
+      # faster generation.
+      - name: Build rustdoc docs
+        run: |
+          mkdir -p ./_site/dev/docs/api
       - uses: actions/checkout@v4
       - name: Install mdBook
         run: |
@@ -41,11 +47,14 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with mdBook
-        run: mdbook build book/zh/
+        run: |
+          cd book
+          mdbook build
+          mv book ../_site/dev/docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./book
+          path: ./_site
 
   # Deployment job
   deploy:
