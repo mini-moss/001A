@@ -19,7 +19,7 @@ enum Commands {
 fn main() -> Result<()> {
     match Cli::parse().command {
         Commands::Qemu => {
-            let status = Command::new("echo").arg("qemu done").status();
+            let _ = Command::new("echo").arg("qemu done").status();
         }
     }
     Ok(())
