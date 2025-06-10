@@ -1,7 +1,6 @@
 use core::panic::PanicInfo;
 
 #[panic_handler]
-fn panic(info: &PanicInfo) -> ! {
-    let _ = info.message();
+fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }

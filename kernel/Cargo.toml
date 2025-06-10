@@ -9,6 +9,7 @@ logger = { path = "comps/logger" }
 [[bin]]
 name = "kernel"
 test = false
+doctest = false
 
 [profile.dev]
 panic = "abort"
