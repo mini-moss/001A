@@ -7,7 +7,7 @@ mod state_atomics;
 pub(crate) struct TaskHeader {
     pub(crate) state: State,
 }
-#[derive(Clone, Copy, PartialEq)]
+
 pub(crate) struct TaskRef {
     ptr: NonNull<TaskHeader>
 }

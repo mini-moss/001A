@@ -5,3 +5,13 @@ edition = "2024"
 
 [dependencies]
 logger = { path = "comps/logger" }
+
+[[bin]]
+name = "kernel"
+test = false
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"

@@ -1,3 +1,4 @@
 [alias]
 xtask = "run --package xtask --"
 qemu = "xtask qemu"
+bin = "xtask bin"

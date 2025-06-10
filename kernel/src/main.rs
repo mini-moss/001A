@@ -4,6 +4,7 @@
 use logger::print;
 
 mod executor;
+mod lang;
 
 #[unsafe(no_mangle)]
 pub extern "C" fn main() -> ! {
