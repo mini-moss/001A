@@ -31,3 +31,13 @@ macro_rules! print {
         $crate::_print(format_args!($($arg)*));
     };
 }
+
+#[macro_export]
+macro_rules! println {
+    () => {
+        $crate::print!("\n")
+    };
+    ($($arg:tt)*) => {{
+        $crate::_print(format_args!("{}\n", $($arg)*));
+    }};
+}
