@@ -10,6 +10,8 @@ logger = { path = "comps/logger" }
 name = "kernel"
 test = false
 doctest = false
+bench = false
+doc = false
 
 [profile.dev]
 panic = "abort"

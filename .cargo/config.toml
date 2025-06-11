@@ -2,3 +2,6 @@
 xtask = "run --package xtask --"
 qemu = "xtask qemu"
 bin = "xtask bin"
+gdbs = "xtask gdb-server"
+gdbc = "xtask gdb-client"
+objdump = "xtask objdump"
