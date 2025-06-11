@@ -136,3 +136,4 @@ fn uart_write_byte(byte: u8) {
 ```
 
 之后进行文件打包和在qemu中执行，能得到期望输出
+> 实现commit: f524998ac3b7e57a62470f570cbf51f8bd61c251
