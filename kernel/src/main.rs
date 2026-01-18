@@ -6,7 +6,7 @@ use logger::{println};
 
 mod lang;
 
-global_asm!(include_str!("../arch/riscv/boot.S"));
+global_asm!(include_str!("arch/riscv/boot.S"));
 
 #[unsafe(no_mangle)]
 pub extern "C" fn rust_main() -> ! {
