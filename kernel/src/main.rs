@@ -4,10 +4,9 @@
 use core::arch::{global_asm};
 use logger::{println};
 
-mod executor;
 mod lang;
 
-global_asm!(include_str!("../../arch/riscv/boot.S"));
+global_asm!(include_str!("../arch/riscv/boot.S"));
 
 #[unsafe(no_mangle)]
 pub extern "C" fn rust_main() -> ! {

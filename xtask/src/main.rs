@@ -31,7 +31,7 @@ fn main() -> Result<()> {
         Commands::Bin => {
             let _ = Command::new("cargo").arg("clean").status();
             let _ = Command::new("cargo")
-                .env("RUSTFLAGS", "-Clink-arg=-Tarch/riscv/linker.ld -Cforce-frame-pointers=yes")
+                .env("RUSTFLAGS", "-Clink-arg=-Tkernel/arch/riscv/linker.ld -Cforce-frame-pointers=yes")
                 .arg("build")
                 .args(["-Z", "build-std=core,alloc"])
                 .args(["--target", "riscv64gc-unknown-none-elf"])
