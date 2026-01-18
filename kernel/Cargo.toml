@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 logger = { path = "src/logger" }
+riscv = {version = "0.16.0", features = ["s-mode"]}
 
 [[bin]]
 name = "kernel"

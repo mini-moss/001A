@@ -1,10 +1,10 @@
 # Makefile for mini-moss/001A RISC-V kernel
-
+ARCH ?= riscv64
 # Configuration
 TARGET = riscv64gc-unknown-none-elf
 KERNEL_ELF = target/$(TARGET)/debug/kernel
 KERNEL_BIN = target/$(TARGET)/debug/kernel.bin
-LINKER_SCRIPT = kernel/src/arch/riscv/linker.ld
+LINKER_SCRIPT = kernel/src/arch/riscv/boot/linker.ld
 OUTPUT_ASM = kernel.S
 
 # Default target

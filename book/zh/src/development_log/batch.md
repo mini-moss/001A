@@ -112,7 +112,7 @@ stacks_start:
 使用global_asm加载boot.S
 
 ```rust
-global_asm!(include_str!("../../arch/riscv/boot.S"));
+global_asm!(include_str!("arch/riscv/boot/boot.S"));
 ```
 
 入口函数
