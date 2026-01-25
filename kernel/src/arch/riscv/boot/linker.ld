@@ -24,11 +24,13 @@ SECTIONS
     }
 
     .bss ALIGN(4K) : {
+        __bss = .;
         *(.bss.bootstack)
 
         . = ALIGN(4K);
         *(.bss .bss.*)
         *(.sbss .sbss.*)
+        __bss_end = .;
     }
 
     PROVIDE(end = .);
