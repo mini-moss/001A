@@ -18,13 +18,9 @@ checksum = "361a90feb7004eca4019fb28352a9465666b24f840f5c3cddf0ff13920590b89"
 name = "kernel"
 version = "0.1.0"
 dependencies = [
- "logger",
- "riscv",
+ "riscv 0.16.0",
+ "rustsbi",
 ]
-
-[[package]]
-name = "logger"
-version = "0.1.0"
 
 [[package]]
 name = "paste"
@@ -48,6 +44,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dc74d9a594b72ae6656596548f56f667211f8a97b3d4c3d467150794690dc40a"
 dependencies = [
  "proc-macro2",
+]
+
+[[package]]
+name = "riscv"
+version = "0.11.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2f5c1b8bf41ea746266cdee443d1d1e9125c86ce1447e1a2615abd34330d33a9"
+dependencies = [
+ "critical-section",
+ "embedded-hal",
 ]
 
 [[package]]
@@ -79,6 +85,34 @@ name = "riscv-types"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d3f2ad9f15a07f4a0e1677124f9120ce7e83ab7e1ca7186af0ca9da529b62e80"
+
+[[package]]
+name = "rustsbi"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "44c13763120794ed11d64bac885fb31d384ae385c3287b0697711b97affbf8ab"
+dependencies = [
+ "riscv 0.11.1",
+ "rustsbi-macros",
+ "sbi-spec",
+]
+
+[[package]]
+name = "rustsbi-macros"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a71347da9582cc6b6f3652c7d2c06516c9555690b3738ecdff7e84297f4e17fc"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "sbi-spec"
+version = "0.0.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e6e36312fb5ddc10d08ecdc65187402baba4ac34585cb9d1b78522ae2358d890"
 
 [[package]]
 name = "syn"

@@ -1,7 +1,7 @@
-#![no_std]
-
 use core::fmt;
-use core::fmt::{Write, Result};
+use core::fmt::{Result, Write};
+use core::result::Result::Ok;
+use crate::arch::sbi::console_putchar;
 
 fn uart_write_byte(byte: u8) {
     unsafe {
@@ -21,10 +21,23 @@ impl Write for UartWriter {
     }
 }
 
-pub fn _print(args: fmt::Arguments) {
-    let _ = UartWriter.write_fmt(args);
+// pub fn _print(args: fmt::Arguments) {
+//     let _ = UartWriter.write_fmt(args);
+// }
+struct Stdout;
+
+impl Write for Stdout {
+    fn write_str(&mut self, s: &str) -> Result {
+        for c in s.bytes() {
+            console_putchar(c as usize);
+        }
+        Ok(())
+    }
 }
 
+pub fn _print(args: fmt::Arguments) {
+    let _ = Stdout.write_fmt(args);
+}
 #[macro_export]
 macro_rules! print {
     ($($arg:tt)*) => {

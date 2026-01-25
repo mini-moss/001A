@@ -2,7 +2,7 @@ use core::arch::{global_asm, asm};
 
 global_asm!(include_str!("trap.S"));
 
-pub(super) unsafe fn init_no_cpu() {
+pub unsafe fn init_no_cpu() {
     unsafe {
         asm!("csrw sscratch, zero");
         asm!("csrw stvec, {}", in(reg) trap_entry as *const () as usize);

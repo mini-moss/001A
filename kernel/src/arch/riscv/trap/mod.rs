@@ -6,13 +6,7 @@ use riscv::{
     register::scause::Trap,
 };
 
-pub use trap::TrapFrame;
-
-pub unsafe fn init_no_cpu() {
-    unsafe {
-        self::trap::init_no_cpu();
-    }
-}
+pub use trap::{TrapFrame, init_no_cpu};
 
 #[unsafe(no_mangle)]
 pub extern "C" fn trap_handler(tf: &mut TrapFrame) {

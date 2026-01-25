@@ -1,13 +1,8 @@
 #![no_std]
 #![no_main]
 
-#[cfg_attr(target_arch = "riscv64", path = "arch/riscv/mod.rs")]
-pub mod arch;
-
+use kernel::{arch, println};
 use core::arch::global_asm;
-use logger::println;
-
-mod lang;
 
 global_asm!(include_str!("arch/riscv/boot/boot.S"));
 
