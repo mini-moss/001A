@@ -26,7 +26,7 @@ pub extern "C" fn trap_handler(tf: &mut TrapFrame) {
             panic!("kernel error： {:?}, stval={:#x}", e, stval::read());
         }
         Trap::Interrupt(i) => {
-            panic!("kernel Interrupt： {:?}",i);
+            panic!("kernel Interrupt： {:?}", i);
         }
     }
 }

@@ -1,7 +1,7 @@
+use crate::arch::sbi::console_putchar;
 use core::fmt;
 use core::fmt::{Result, Write};
 use core::result::Result::Ok;
-use crate::arch::sbi::console_putchar;
 
 fn uart_write_byte(byte: u8) {
     unsafe {

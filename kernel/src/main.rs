@@ -1,8 +1,15 @@
 #![no_std]
 #![no_main]
 
-use kernel::{arch, println};
+use crate::arch::sbi::shutdown;
 use core::arch::global_asm;
+
+#[cfg_attr(target_arch = "riscv64", path = "arch/riscv/mod.rs")]
+pub mod arch;
+mod lang;
+mod logger;
+
+pub use logger::_print;
 
 global_asm!(include_str!("arch/riscv/boot/boot.S"));
 
@@ -13,7 +20,14 @@ pub extern "C" fn rust_main() -> ! {
     unsafe {
         arch::init_no_cpu();
     }
-    loop {}
+    let mut i = 1;
+    loop {
+        i += 1;
+        println!(i);
+        if i == 1000 {
+            shutdown();
+        }
+    }
 }
 
 fn clear_bss() {

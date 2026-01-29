@@ -1,5 +1,5 @@
-pub mod trap;
 pub mod sbi;
+pub mod trap;
 
 pub use trap::init_no_cpu;
 
