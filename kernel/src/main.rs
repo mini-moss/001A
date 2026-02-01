@@ -7,9 +7,12 @@ use core::arch::global_asm;
 #[cfg_attr(target_arch = "riscv64", path = "arch/riscv/mod.rs")]
 pub mod arch;
 mod lang;
-mod logger;
+mod console;
+mod syscall;
+mod prelude;
+mod error;
 
-pub use logger::_print;
+pub use console::_print;
 
 global_asm!(include_str!("arch/riscv/boot/boot.S"));
 
