@@ -25,7 +25,7 @@ pub extern "C" fn rust_main() -> ! {
         i += 1;
         println!(i);
         if i == 1000 {
-            shutdown();
+            panic!("Shutdown machine!");
         }
     }
 }

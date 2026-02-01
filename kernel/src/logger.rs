@@ -40,6 +40,9 @@ pub fn _print(args: fmt::Arguments) {
 }
 #[macro_export]
 macro_rules! print {
+    ($fmt: literal $(, $($arg: tt)+)?) => {
+        $crate::_print(format_args!($fmt $(, $($arg)+)?))
+    };
     ($($arg:tt)*) => {
         $crate::_print(format_args!($($arg)*));
     };
@@ -49,6 +52,9 @@ macro_rules! print {
 macro_rules! println {
     () => {
         $crate::print!("\n")
+    };
+    ($fmt: literal $(, $($arg: tt)+)?) => {
+        $crate::print!("{}", format_args!(concat!($fmt, "\n") $(, $($arg)+)?))
     };
     ($($arg:tt)*) => {{
         $crate::_print(format_args!("{}\n", $($arg)*));
