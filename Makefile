@@ -15,6 +15,7 @@ all: build
 .PHONY: build
 build:
 	@echo "Building kernel..."
+	@#make -C ./tests/initramfs build
 	cargo clean
 	RUSTFLAGS="-Clink-arg=-T$(LINKER_SCRIPT) -Cforce-frame-pointers=yes" \
 		cargo build -Z build-std=core,alloc --target $(TARGET) --manifest-path kernel/Cargo.toml

@@ -11,6 +11,7 @@ mod console;
 mod syscall;
 mod prelude;
 mod error;
+mod batch;
 
 pub use console::_print;
 
